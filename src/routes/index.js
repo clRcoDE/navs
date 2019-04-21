@@ -29,12 +29,7 @@ const BottomTab = createBottomTabNavigator(
         transfer
     },
     {
-        navigationOptions: ({ navigation }) => {
-           return {
-            drawerLockMode:navigation.state.index === 0 ? 'unlocked' : 'locked-closed'
-
-        }
-    }
+        
         
     }
 )
@@ -49,6 +44,7 @@ const TempStack= createStackNavigator(
            screen:about,
            navigationOptions:({navigation})=>{
                return {
+              
                headerLeft:<TouchableHighlight onPress={()=>navigation.popToTop()} ><Text>back</Text></TouchableHighlight>
             
                }
@@ -59,6 +55,13 @@ const TempStack= createStackNavigator(
     {
         
         initialRouteName: 'BottomTab',
+        navigationOptions: ({ navigation }) => {
+            return {
+             drawerLockMode: navigation.state.routes[0].index === 0 ? 'unlocked' : 'locked-closed'
+ 
+         }
+
+        }
     }
 )
 

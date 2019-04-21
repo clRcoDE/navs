@@ -92761,14 +92761,7 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
       screen: _transaction.default
     },
     transfer: _transfer.default
-  }, {
-    navigationOptions: function navigationOptions(_ref) {
-      var navigation = _ref.navigation;
-      return {
-        drawerLockMode: navigation.state.index === 0 ? 'unlocked' : 'locked-closed'
-      };
-    }
-  });
+  }, {});
   var TempStack = (0, _reactNavigation.createStackNavigator)({
     BottomTab: BottomTab,
     setting: {
@@ -92777,8 +92770,8 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
     },
     about: {
       screen: _about.default,
-      navigationOptions: function navigationOptions(_ref2) {
-        var navigation = _ref2.navigation;
+      navigationOptions: function navigationOptions(_ref) {
+        var navigation = _ref.navigation;
         return {
           headerLeft: _react.default.createElement(_reactNative.TouchableHighlight, {
             onPress: function onPress() {
@@ -92786,19 +92779,25 @@ __d(function (global, _$$_REQUIRE, _$$_IMPORT_DEFAULT, _$$_IMPORT_ALL, module, e
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 52
+              lineNumber: 53
             }
           }, _react.default.createElement(_reactNative.Text, {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 52
+              lineNumber: 53
             }
           }, "back"))
         };
       }
     }
   }, {
-    initialRouteName: 'BottomTab'
+    initialRouteName: 'BottomTab',
+    navigationOptions: function navigationOptions(_ref2) {
+      var navigation = _ref2.navigation;
+      return {
+        drawerLockMode: navigation.state.routes[0].index === 0 ? 'unlocked' : 'locked-closed'
+      };
+    }
   });
   var DrawerOne = (0, _reactNavigation.createDrawerNavigator)({
     TempStack: TempStack,
