@@ -3,8 +3,10 @@ import { Text, StyleSheet, View } from 'react-native'
 
 export default class dashboard extends Component {
   render() {
+    
     return (
       <View>
+        
         <Text> textInComponent </Text>
       </View>
     )

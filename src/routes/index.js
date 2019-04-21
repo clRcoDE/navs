@@ -21,27 +21,57 @@ import {createAppContainer , createBottomTabNavigator , createStackNavigator , c
 const BottomTab = createBottomTabNavigator(
     {
         dashboard,
-        transaction,
+        transaction:{
+            screen:transaction,
+
+          
+        },
         transfer
+    },
+    {
+        navigationOptions: ({ navigation }) => {
+           return {
+            drawerLockMode:navigation.state.index === 0 ? 'unlocked' : 'locked-closed'
+
+        }
+    }
+        
     }
 )
 const TempStack= createStackNavigator(
     {
        BottomTab,
-       setting,
-       about
+       setting:{
+           screen:setting,
+        backBehavior: 'initialRoute',
+       },
+       about:{
+           screen:about,
+           navigationOptions:({navigation})=>{
+               return {
+               headerLeft:<TouchableHighlight onPress={()=>navigation.popToTop()} ><Text>back</Text></TouchableHighlight>
+            
+               }
+           }
+       }
+       
+    },
+    {
+        
+        initialRouteName: 'BottomTab',
     }
 )
 
 const DrawerOne = createDrawerNavigator(
     {
         TempStack,
+        BottomTab,
        
-
+        
     },
     {
-    contentComponent:CustomeDrawer   
-        
+    contentComponent:CustomeDrawer,
+   
     }
 )
 
